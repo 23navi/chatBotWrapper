@@ -1,8 +1,8 @@
 import { WELCOME_MESSAGE } from "../../dummyData";
-import { message } from "../../types/messages";
+import { type Message } from "../../types/messages";
 import styles from "./Chat.module.css";
 
-export function Chat({ messages }: { messages: message[] }) {
+export function Chat({ messages }: { messages: Message[] }) {
   return (
     <div className={styles.Chat}>
       {[WELCOME_MESSAGE, ...messages].map(({ role, content }, index) => (

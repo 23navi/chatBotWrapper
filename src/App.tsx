@@ -2,9 +2,15 @@ import { useState } from "react";
 import { Chat } from "./components/Chat/Chat";
 import styles from "./App.module.css";
 import { Controls } from "./components/Controls/Controls";
+import { type Message } from "./types/messages";
 
 function App() {
-  const [messages] = useState([]);
+  const [messages, setMessages] = useState<Message[]>([]);
+
+  function handleContentSend(content: string) {
+    setMessages((messages) => [...messages, { role: "user", content }]);
+  }
+
   return (
     <div className={styles.App}>
       <header className={styles.Header}>
@@ -14,7 +20,7 @@ function App() {
       <div className={styles.ChatContainer}>
         <Chat messages={messages} />
       </div>
-      <Controls />
+      <Controls onSend={handleContentSend} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
-import { message } from "../types/messages";
+import { Message } from "../types/messages";
 
-export const MESSAGES: message[] = [
+export const MESSAGES: Message[] = [
     {
         role: "user",
         content:
@@ -44,7 +44,7 @@ export const MESSAGES: message[] = [
 ];
 
 
-export const WELCOME_MESSAGE: message = {
+export const WELCOME_MESSAGE: Message = {
     role: "assistant",
     content:
         "Hello, I'm a chatbot. I'm here to help you with anything you need. How can I help you today?",
