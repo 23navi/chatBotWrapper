@@ -16,6 +16,13 @@ export function Controls({ onSend }: { onSend: (content: string) => void }) {
     setContent("");
   }
 
+  function handleEnterPress(event: React.KeyboardEvent<HTMLTextAreaElement>) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      handleContentSend();
+    }
+  }
+
   return (
     <div className={styles.Controls}>
       <div className={styles.TextAreaContainer}>
@@ -24,6 +31,7 @@ export function Controls({ onSend }: { onSend: (content: string) => void }) {
           placeholder="Message AI Chatbot"
           value={content}
           onChange={handleContentChange}
+          onKeyDown={handleEnterPress}
         />
       </div>
       <button className={styles.Button} onClick={handleContentSend}>
@@ -32,3 +40,6 @@ export function Controls({ onSend }: { onSend: (content: string) => void }) {
     </div>
   );
 }
+
+
+
